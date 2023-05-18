@@ -1,0 +1,9 @@
+.Titulo {
+  color: var(--color-gray-100);
+}
+
+.SubTitulo {
+  color: var(--color-primary-secondary);
+  font-size: 16px;
+  margin-left: 5px;
+}
