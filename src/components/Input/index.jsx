@@ -8,8 +8,6 @@ export const Input = ({ setValueInput }) => {
     setValueInput(value)
   }
 
-  const value = watch("value", "")
-  console.log(value)
   return (
     <Form onSubmit={handleSubmit(submitData)}>
       <input 
