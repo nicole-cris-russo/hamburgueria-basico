@@ -1,20 +1,24 @@
+import { useForm } from "react-hook-form";
 import { Form } from "./styles.js";
 
 export const Input = ({ setValueInput }) => {
-  function handleSubmit(event) {
-    const form = event.target.form;
-    let valueInput = form.valueInput.value;
-    setValueInput(valueInput);
+  const { handleSubmit, register, watch } = useForm()
+  const submitData = (data) => {
+    const value = watch("value", "")
+    setValueInput(value)
   }
+
+  const value = watch("value", "")
+  console.log(value)
   return (
-    <Form>
-      <input id="valueInput" type="text" placeholder="Digitar Pesquisa" />
-      <button
-        onClick={(event) => {
-          event.preventDefault();
-          handleSubmit(event);
-        }}
-      >
+    <Form onSubmit={handleSubmit(submitData)}>
+      <input 
+      id="valueInput" 
+      type="text" 
+      placeholder="Digitar Pesquisa" 
+      {...register("value")}
+      />
+      <button type="submit">
         Pesquisar
       </button>
     </Form>
