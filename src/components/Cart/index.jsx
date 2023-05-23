@@ -1,34 +1,19 @@
 import { useContext } from "react";
-import { ProductCart } from "../ProductCart";
-import { ValueTotal } from "../ValueTotal";
-import { Container, Div, DivEmpty } from "./styles.js";
+import { Container, Box, DivEmpty } from "./styles.js";
 import { ProductContext } from "../../contexts/productContext";
+import { ListProductsInCart } from "../ListProductsInCart";
 
 export const Cart = () => {
   const { productInCart } = useContext(ProductContext)
+  let lengthCart = productInCart.length
 
   return (
-    <Container id="Cart" productInCart={productInCart}>
-      <Div>
+    <Container id="Cart" lengthcart={lengthCart}>
+      <Box>
         <h3>Carrinho de compras</h3>
-      </Div>
+      </Box>
       {productInCart.length > 0 ? (
-        <>
-          <Div>
-            <ul>
-              {productInCart.map((product) => {
-                return (
-                  <li key={product.id}>
-                    <ProductCart product={product} />
-                  </li>
-                );
-              })}
-            </ul>
-          </Div>
-          <Div>
-            <ValueTotal/>
-          </Div>
-        </>
+        <ListProductsInCart/>
       ) : (
         <DivEmpty>
           <h3>Sua sacola está vazia</h3>

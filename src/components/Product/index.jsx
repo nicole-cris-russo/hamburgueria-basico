@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Container, BoxInfos } from "./styles";
 import styles from "./styles.module.css";
+import { ProductContext } from "../../contexts/productContext";
 
 export const Product = ({
   product,
-  productsAdd,
 }) => {
+  const { productsAdd } = useContext(ProductContext)
+
   return (
     <Container>
       <img src={product.img} alt={product.name} />

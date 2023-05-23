@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Container, BoxOne, BoxTwo, BoxThree } from "./styles.js";
-import { ProductProvider } from "../../contexts/productContext.js";
+import { ProductContext } from "../../contexts/productContext.js";
 
 export const ProductCart = ({ product }) => {
-  const { removeCart } = useContext(ProductProvider)
+  const { removeCart } = useContext(ProductContext)
 
   return (
     <Container>

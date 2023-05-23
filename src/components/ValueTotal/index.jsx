@@ -1,9 +1,9 @@
-import { ProductProvider } from "../../contexts/productContext";
+import { ProductContext } from "../../contexts/productContext";
 import { Container, Box } from "./styles";
 import { useContext, useEffect } from "react";
 
 export const ValueTotal = () => {
-  const {productInCart, setCartValueTotal, cartValueTotal, removeAllCart} = useContext(ProductProvider)
+  const {productInCart, setCartValueTotal, cartValueTotal, removeAllCart} = useContext(ProductContext)
 
   useEffect(() => {
     setCartValueTotal(productInCart.reduce((a, b) => a + b.price, 0));

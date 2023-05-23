@@ -4,7 +4,7 @@ import { Container } from "./styles.js";
 import { ProductContext } from "../../contexts/productContext";
 
 export const ProductsList = () => {
-  const {valueInput, listProducts, productsAdd} = useContext(ProductContext)
+  const {valueInput, listProducts} = useContext(ProductContext)
 
   return (
     <Container id="List">
@@ -18,7 +18,6 @@ export const ProductsList = () => {
                   <li key={product.id}>
                     <Product
                       product={product}
-                      productsAdd={productsAdd(product)}
                     />
                   </li>
                 )
@@ -29,7 +28,6 @@ export const ProductsList = () => {
                 <li key={product.id}>
                   <Product
                     product={product}
-                    productsAdd={productsAdd(product)}
                   />
                 </li>
               );
