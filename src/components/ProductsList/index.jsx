@@ -1,11 +1,11 @@
+import { useContext } from "react";
 import { Product } from "../Product";
 import { Container } from "./styles.js";
+import { ProductContext } from "../../contexts/productContext";
 
-export const ProductsList = ({
-  listProducts,
-  valueInput,
-  productsAdd,
-}) => {
+export const ProductsList = () => {
+  const {valueInput, listProducts, productsAdd} = useContext(ProductContext)
+
   return (
     <Container id="List">
       <ul>

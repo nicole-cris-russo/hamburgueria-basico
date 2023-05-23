@@ -1,14 +1,12 @@
+import { useContext } from "react";
 import { ProductCart } from "../ProductCart";
 import { ValueTotal } from "../ValueTotal";
 import { Container, Div, DivEmpty } from "./styles.js";
+import { ProductContext } from "../../contexts/productContext";
 
-export const Cart = ({
-  productInCart,
-  removeCart,
-  setCartValueTotal,
-  cartValueTotal,
-  removeAllCart,
-}) => {
+export const Cart = () => {
+  const { productInCart } = useContext(ProductContext)
+
   return (
     <Container id="Cart" productInCart={productInCart}>
       <Div>
@@ -21,19 +19,14 @@ export const Cart = ({
               {productInCart.map((product) => {
                 return (
                   <li key={product.id}>
-                    <ProductCart product={product} removeCart={removeCart} />
+                    <ProductCart product={product} />
                   </li>
                 );
               })}
             </ul>
           </Div>
           <Div>
-            <ValueTotal
-              productInCart={productInCart}
-              setCartValueTotal={setCartValueTotal}
-              cartValueTotal={cartValueTotal}
-              removeAllCart={removeAllCart}
-            />
+            <ValueTotal/>
           </Div>
         </>
       ) : (
